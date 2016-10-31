@@ -1,0 +1,43 @@
+.authForm {
+  text-align: center;
+  width: 80%;
+  margin: 60px auto 0;
+}
+
+input[type=email], input[type=password] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 16px;
+}
+
+#gotoSignup, #gotoLogin {
+  font-size: 0.8em;
+}
+
+#logoutButton, #resetButton {
+  text-align: center;
+  width: 100%;
+}
+
+#dateLabel {
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+  font-size: 1.8em;
+}
+
+.pedometerContainer {
+  text-align: center;
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+
+.pedometerContainer > span {
+  padding-top: 50px;
+  font-size: 5em;
+  height: 105px;
+}
