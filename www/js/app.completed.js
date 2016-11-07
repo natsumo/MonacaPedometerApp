@@ -1,6 +1,6 @@
 // (1) SDKの初期化
-var ncmb = new NCMB("YOUR_APPLICATION_KEY",
-                    "YOUR_CLIENT_KEY");
+var ncmb = new NCMB('YOUR_APPLICATION_KEY',
+                    'YOUR_CLIENT_KEY');
 
 // (2) 会員の新規登録の処理
 var signUp = function(email, password){
@@ -67,7 +67,7 @@ var syncCloud = function(data, waitingList){
   // 権限を設定(自分だけに読み書き権限を付与)
   acl.setUserReadAccess(currentUser, true)
      .setUserWriteAccess(currentUser, true);
-  
+
   // Stepsクラスのインスタンスを生成
   var steps = new Steps();
   // 値を設定
@@ -136,7 +136,7 @@ var Pedometer = {
   syncCloudOptions: {
     frequency: 1000
   },
-  // 
+  //
   syncFlag: false,
   syncCloudEventHandler: function(event, dataList){
     if (dataList.length > 0) {
@@ -279,7 +279,7 @@ ons.ready(function(){
 
 // ==================================
 // Device ready
-document.addEventListener("deviceready", function(){
+document.addEventListener('deviceready', function(){
   navigator.splashscreen.hide(); // スプラッシュ画面を消す
 }, false);
 
@@ -292,7 +292,7 @@ $(document).ready(function(){
     var authForm = $(option).closest('.authForm');
     var emailForm = authForm.children('[type=email]');
     var passwordForm = authForm.children('[type=password]');
-    
+
     return {authForm: authForm, email: emailForm.val(), password: passwordForm.val()};
   };
 
@@ -368,21 +368,21 @@ $(document).ready(function(){
     Pedometer.stop();
     logout();
   });
-  
+
   // - スタートボタンをタップした時の処理
   $('body').on('click', '#startButton', function(){
     $('#startButton').hide();
     $('#stopButton').show();
     Pedometer.start();
   });
-  
+
   // - ストップボタンをタップした時の処理
   $('body').on('click', '#stopButton', function(){
     $('#stopButton').hide();
     $('#startButton').show();
     Pedometer.stop();
   });
-  
+
   // - リセットボタンをタップした時の処理
   $('body').on('click', '#resetButton', function(){
     Pedometer.reset();
@@ -403,7 +403,7 @@ $(document).ready(function(){
       $('body').trigger('logoutComplete');
     }
   });
-  
+
   // - 同期完了のイベント処理
   $('body').on('syncNext', Pedometer.syncCloudEventHandler);
 
