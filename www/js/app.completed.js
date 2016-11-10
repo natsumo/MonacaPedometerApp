@@ -8,8 +8,7 @@ var signUp = function(email, password){
   var user = new ncmb.User();
   // 値を設定
   user.set('userName', email)
-      .set('password', password)
-      .set('mailAddress', email);
+      .set('password', password);
   // 新規登録
   user.signUpByAccount()
       .then(function(user){
