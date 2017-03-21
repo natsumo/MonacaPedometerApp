@@ -6,7 +6,7 @@ class: center, middle, inverse
 @ニフティ株式会社
 
 .footnote[
-20161114
+20161114(20170328update)
 ]
 
 ---
@@ -32,12 +32,12 @@ __もなか 【[Monaca](https://ja.monaca.io/)】__
 ---
 ### ニフティクラウド mobile backend って何？
 __にふてぃくらうど-もばいる-ばっくえんど 【[ニフティクラウド mobile backend](http://mb.cloud.nifty.com/about.htm)】__
-* スマートフォンアプリに必要なバックエンド機能が開発不要で利用できるクラウドサービス。 クラウド上に用意された機能をAPIで呼び出すだけで利用できます。また、APIを簡単に使うためのSDKを用意しています（ iOS / Android / Monaca / Unity ）。mobile Backend as a Service の頭文字を取って、通称 mBaaS 呼ばれます。
+* スマートフォンアプリに必要なバックエンド機能が開発不要で利用できるクラウドサービス。 クラウド上に用意された機能をAPIで呼び出すだけで利用できます。また、APIを簡単に使うためのSDKを用意しています（ iOS / Android / Monaca / Unity ）。
 
 .center[![mBaaSとは？](readme-img/mBaaSとは.png)]
 
 ---
-### Monaca と mBaaS で<br>サーバー連携アプリは簡単に実現可能に
+### Monaca と mobile backend  で<br>サーバー連携アプリは簡単に実現可能に
 
 .center[![補足1](readme-img/補足1.png)]
 
@@ -88,34 +88,56 @@ https://ja.monaca.io/
 
 .center[![Monaca準備3](readme-img/Monaca準備3.png)]
 
+---
+### Monaca準備
+#### mobile backend  SDK の導入
+* 「設定」＞「JS/CSSコンポーネントの追加と削除...」をクリックします
+* 「ncmb」と入力し、
+
+.center[![SDK導入1](readme-img/SDK導入1.png)]
+
+---
+### Monaca準備
+#### mobile backend  SDK の導入
+* 「ncmb」が表示されたら「追加」をクリックします
+* SDKのバージョンは最新（デフォルト）を選択し、「インストール」をクリックします
+* 「components/ncmb/ncmb.min.js」にチェックを入れて「保存する」をクリックします
+
+.center[![SDK導入2](readme-img/SDK導入2.png)]
+
+---
+### Monaca準備
+#### mobile backend  SDK の導入
+* 一覧に表示されれば導入完了です
+
+.center[![SDK導入3](readme-img/SDK導入3.png)]
+
 これでMonaca（アプリ側）の準備は完了です◎
 
 ---
 ### Monaca準備
 #### プロジェクトに実装済みの内容紹介
-* mBaaS SDK の導入
- * 詳しくは[こちら](http://mb.cloud.nifty.com/doc/current/introduction/quickstart_monaca.html#SDKのインストールと読み込み)をご参照ください
 * 端末の加速度センサーにアクセスし、値を取得する処理
  * 後ほど解説します
 
 ---
-### mBaaS準備
-* mBaaS にログインします
+### mobile backend 準備
+* mobile backend  にログインします
 
 .center[![mBaaS準備1](readme-img/mBaaS準備1.png)]
 http://mb.cloud.nifty.com/
 
 ---
-### mBaaS準備
+### mobile backend 準備
 * 新しいアプリを作成します
  * アプリ名は「`pedometer`」と入力してください
- * mBaaSを既に使用したことがある場合は、画面上方のメニューバーにある「+新しいアプリ」をクリックすると同じ画面が表示されます
+ * mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「+新しいアプリ」をクリックすると同じ画面が表示されます
 ![mBaaS準備2-2](readme-img/mBaaS準備2-2.png)
 
 .center[![mBaaS準備2-1](readme-img/mBaaS準備2-1.png)]
 
 ---
-### mBaaS準備
+### mobile backend 準備
 * アプリが作成されるとAPIキー（２種類）が発行されます
  * APIキーは後で使用します。
 * ここでは使用しないので、「OK」で閉じます
@@ -123,12 +145,12 @@ http://mb.cloud.nifty.com/
 .center[![mBaaS準備3](readme-img/mBaaS準備3.png)]
 
 ---
-### mBaaS準備
+### mobile backend 準備
 * ダッシュボードが表示されます
 
 .center[![mBaaS準備4](readme-img/mBaaS準備4.png)]
 
-これでmBaaS（サーバー側）の準備も完了です◎
+これでmobile backend （サーバー側）の準備も完了です◎
 
 ---
 layout: true
@@ -165,7 +187,7 @@ layout: false
 
 ---
 ### (1) SDKの初期化
-SDKの初期化は、mBaaSを使用する場合に必ず行う作業です。これによって、アプリがサーバーを認識し、連携されます。
+SDKの初期化は、mobile backend を使用する場合に必ず行う作業です。これによって、アプリがサーバーを認識し、連携されます。
 
 ```js
 // (1) SDKの初期化
@@ -175,7 +197,7 @@ var ncmb = new NCMB('YOUR_APPLICATION_KEY',
 
 ---
 ### (1) SDKの初期化
-* mBaaS のダッシュボードから、APIキー（アプリケーションキーとクライアントキー）をコピーして、それぞれ`YOUR_APPLICATION_KEY`と`YOUR_CLIENT_KEY`に貼り付けます
+* mobile backend  のダッシュボードから、APIキー（アプリケーションキーとクライアントキー）をコピーして、それぞれ`YOUR_APPLICATION_KEY`と`YOUR_CLIENT_KEY`に貼り付けます
 
 .center[![SDKの初期化](readme-img/SDKの初期化.png)]
 
@@ -293,7 +315,7 @@ var logout = function(){
 ---
 ### ★動作確認①
 #### ダッシュボードで登録されたことを確認
-* mBaaSのダッシュボード（クラウド）を見てみましょう
+* mobile backend のダッシュボード（クラウド）を見てみましょう
 * 「会員管理」をクリックすると先ほど端末から登録したアカウントを確認できます
 
 .center[![動作確認①ダッシュボード](readme-img/動作確認①ダッシュボード.png)]
@@ -340,7 +362,7 @@ var Steps = ncmb.DataStore('Steps');
 
 ---
 ### (6) 歩数データをクラウドと同期させる処理
-* mBaaSにデータを保存（あるいは更新）する処理を実装します
+* mobile backend にデータを保存（あるいは更新）する処理を実装します
 
 ```js
 // (6) アプリ内に保持しいている未同期の歩数データをクラウドと同期させる処理
@@ -364,7 +386,7 @@ var syncCloud = function(data, waitingList){
 つづく
 ---
 ### (6) 歩数データをクラウドと同期させる処理
-* mBaaSにデータを保存（あるいは更新）する処理を実装します
+* mobile backend にデータを保存（あるいは更新）する処理を実装します
 
 ```js
   // save/updateメソッドでクラウド上へ保存/更新する
@@ -394,7 +416,7 @@ var syncCloud = function(data, waitingList){
 
 ---
 ### (7) ログイン完了時の処理
-* ログイン完了時、mBaaS(サーバー)に当日計測した歩数データがあれば、取得して画面に表示します
+* ログイン完了時、mobile backend (サーバー)に当日計測した歩数データがあれば、取得して画面に表示します
 
 .size_small_9[
 ```js
@@ -436,7 +458,7 @@ var loginComplete = function(today){
 端末に備わっている「加速度センサー」の値取得し、歩数を計測しています。Monacaでは簡単に加速度センサーから値を取得することが可能です。使い方に関しては、後ほど触れますが、実装済みの内容をここで示しておきます。
 
 .left-column[
-* Cordvaプラグイン
+* Cordovaプラグイン
  * Device Motion を有効にします
 
 .center[![Device_Motion](readme-img/Device_Motion.png)]
@@ -478,14 +500,14 @@ var watchId = navigator.accelerometer.watchAcceleration(onAcceSuccess, onAcceErr
 * 「スタート」ボタンをタップして、測定を開始
  * 歩けない場合は、振っても動作確認が可能です◎
 * 「ストップ」ボタンをタップして測定を終えます
- * このときデータがmBaaSに保存されます！
+ * このときデータがmobile backend に保存されます！
 
 .center[![動作確認②デバッガー1](readme-img/動作確認②デバッガー1.png)]
 
 ---
 ### 動作確認②
 #### ダッシュボードで登録されたことを確認
-* mBaaSのダッシュボード（クラウド）を見てみましょう
+* mobile backend のダッシュボード（クラウド）を見てみましょう
 * 「データストア」をクリックすると、コードで作成した保存先クラス「Steps」が確認できます
 * 「Steps」をクリックするとデータを確認できます
 
@@ -505,8 +527,8 @@ var watchId = navigator.accelerometer.watchAcceleration(onAcceSuccess, onAcceErr
 #### カウントを0に戻すには？？
 * 画面右上の「ゴミ箱」アイコンをタップすると歩数計のカウントを0に戻すことができます
  * 「ゴミ箱」ボタンは歩数計作動中にも使用することができます。
- * ただし、「ゴミ箱」ボタンをタップして、画面のカウントを「0」にリセットしても、再び歩数計をスタートさせ、「ストップ」ボタンをタップしない限り、mBaaS（クラウド）にはデータは反映されません。
-* mBaaS（クラウド）上に正しく反映されるか、確認してみましょう
+ * ただし、「ゴミ箱」ボタンをタップして、画面のカウントを「0」にリセットしても、再び歩数計をスタートさせ、「ストップ」ボタンをタップしない限り、mobile backend （クラウド）にはデータは反映されません。
+* mobile backend （クラウド）上に正しく反映されるか、確認してみましょう
 
 .center[![動作確認②デバッガー2](readme-img/動作確認②デバッガー2.png)]
 
@@ -523,16 +545,22 @@ layout: false
 ### まとめ
 .size_large[
 * Monacaで簡単に加速度センサーにアクセスできることがわかった
-* mBaaSとの連携で簡単にサーバー連携したアプリが作成できることがわかった
- * mBaaSで簡単に会員管理機能を実装できた
- * mBaaSで簡単にデータをクラウドへ保存・更新・取得がでることがわかった
+* mobile backend との連携で簡単にサーバー連携したアプリが作成できることがわかった
+ * mobile backend で簡単に会員管理機能を実装できた
+ * mobile backend で簡単にデータをクラウドへ保存・更新・取得がでることがわかった
 * サーバーと連携すれば、アプリはもっといろんなことができることがわかった！！
 ]
 
 ---
 ### おわりに
+* mobile backend を使えば、
 
 .center[![補足3](readme-img/補足3.png)]
+
+他にも、
+ * mobile backend のプッシュ通知機能を使って追加機能簡単追加！
+  * 1日のおわりに、計測した歩数をプッシュ通知でユーザーに報告してみる
+  * 歩数が少ないユーザーには励ましのプッシュ通知を送ってみる
 
 ---
 layout: true
@@ -547,6 +575,6 @@ layout: false
 「(1)SDKの初期化」以外の実装を完成させた、『5分で体験会バージョン』をご用意しています。以下の２点を実施するだけで直ぐに動作確認いただけます。
 
 * `www/index.html`ファイルの14行目と16行目のコメントアウトを下図のように入れ替えてください。
-* `www/js/app.completed.js`の「(1)SDKの初期化」にmBaaSのダッシュボードからコピーしたAPIキーを貼り付けてください。
+* `www/js/app.completed.js`の「(1)SDKの初期化」にmobile backend のダッシュボードからコピーしたAPIキーを貼り付けてください。
 
 .center[![参考1](readme-img/参考1.png)]
