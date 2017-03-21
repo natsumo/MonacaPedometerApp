@@ -20,14 +20,14 @@
         "cordova-plugin-splashscreen@3.2.2",
         "cordova-plugin-device-motion@1.2.1"
     ],
-    "title-ja": "歩数計アプリ",
+    "title-ja": "歩数計アプリを作ろう！",
     "title-en": "",
-    "description-ja": "Cordova  v6.2.0\r\nNCMB v2.1.3",
+    "description-ja": "ハンズオンセミナー用サンプルプロジェクト",
     "description-en": "",
     "category": "User Template",
     "platform": [
         "android",
         "ios"
     ],
-    "name": "generated-1477903506-581697ed013eb02215fe156d"
+    "name": "generated-1490084332-58cbd0bf013eb03859eeacb7"
 }
