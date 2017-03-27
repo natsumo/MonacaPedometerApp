@@ -518,7 +518,7 @@ var watchId = navigator.accelerometer.watchAcceleration(onAcceSuccess, onAcceErr
 .center[![動作確認②デバッガー4](readme-img/動作確認②デバッガー4.png)]
 
 ---
-### 動作確認②
+### ★動作確認②
 #### ダッシュボードで登録されたことを確認
 * mobile backend のダッシュボード（クラウド）を見てみましょう
 * 「データストア」をクリックすると、コードで作成した保存先クラス「Steps」が確認できます
@@ -527,7 +527,7 @@ var watchId = navigator.accelerometer.watchAcceleration(onAcceSuccess, onAcceErr
 .center[![動作確認②ダッシュボード1](readme-img/動作確認②ダッシュボード1.png)]
 
 ---
-### 動作確認②
+### ★動作確認②
 #### ダッシュボードで登録されたことを確認
 * 「acl」の「パーミッション編集」をクリックすると、会員（自分）のobjectIdが確認できます
  * この場合は、会員自身のみがデータにアクセスすることができます。
@@ -536,7 +536,7 @@ var watchId = navigator.accelerometer.watchAcceleration(onAcceSuccess, onAcceErr
 * データを検索して、ログイン後すぐに歩数（今日の分）を表示してくれます
 
 ---
-### 動作確認②
+### ★動作確認②
 #### カウントを0に戻すには？？
 * 画面右上の「ゴミ箱」アイコンをタップすると歩数計のカウントを0に戻すことができます
  * 「ゴミ箱」ボタンは歩数計作動中にも使用することができます。
