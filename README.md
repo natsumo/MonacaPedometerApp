@@ -38,13 +38,25 @@ __にふてぃくらうど-もばいる-ばっくえんど 【[ニフティク�
 
 ---
 ### Monaca と mobile backend  で<br>サーバー連携アプリは簡単に実現可能に
+mobile backend でクラウド連携するといいこといっぱい！
 
 .center[![補足1](readme-img/補足1.png)]
 
 ---
 ### 今日体験する内容
+#### 歩数計アプリを作ります
+端末の加速度センサーにアクセスして歩数を測定、歩数データはクラウドで管理します
 
-.center[![補足2](readme-img/補足2.png)]
+1. mobile backend の利用登録とアプリの作成
+1. Monaca でアプリを作成
+1. Monaca と mobile backend の連携
+ * SDK の導入と初期化
+ * APIキーの設定
+1. 会員管理機能の実装
+ * 会員登録/ログイン/ログアウト
+1. 歩数データの保存/更新/取得処理の実装
+
+.right_under[![補足2](readme-img/補足2.png)]
 
 ---
 layout: true
@@ -115,12 +127,6 @@ https://ja.monaca.io/
 これでMonaca（アプリ側）の準備は完了です◎
 
 ---
-### Monaca準備
-#### プロジェクトに実装済みの内容紹介
-* 端末の加速度センサーにアクセスし、値を取得する処理
- * 後ほど解説します
-
----
 ### mobile backend 準備
 * mobile backend  にログインします
 
@@ -180,7 +186,7 @@ layout: false
 ★動作確認①<br>
 (5) クラウド上で歩数を管理する「Steps」クラスを定義する<br>
 (6) 歩数データをクラウドと同期させる処理<br>
-(7) ログイン完了時の処理<br>
+(7) 歩数データを取得してログイン時に表示する処理<br>
 ＜おまけ＞加速度センサーから値を取得する処理[実装済み]<br>
 ★動作確認②<br>
 ]
@@ -326,6 +332,7 @@ var logout = function(){
 #### ログアウト
 * ログインの確認をする前に、一度ログアウトしておきましょう
 * 画面左上のアイコンをタップすると、ログアウトできます
+* ログアウトで、mobile backend 上の会員データのupdateDate が更新されます
 ]
 .right-column[
 .center[![動作確認①ログアウト](readme-img/動作確認①ログアウト.png)]
@@ -336,6 +343,7 @@ var logout = function(){
 .left-column[
 #### ログイン
 * 会員登録と同様に、アドレスとパスワードを入力し、「ログイン」ボタンをタップします
+* ログインでも同様に、mobile backend 上の会員データのupdateDate が更新されます
 ]
 .right-column[
 .center[![動作確認①ログイン](readme-img/動作確認①ログイン.png)]
@@ -415,12 +423,12 @@ var syncCloud = function(data, waitingList){
  * ここでは三項演算子を用いて、保存の場合と更新の場合をまとめて表記しています
 
 ---
-### (7) ログイン完了時の処理
+### (7) 歩数データを取得してログイン時に表示する処理
 * ログイン完了時、mobile backend (サーバー)に当日計測した歩数データがあれば、取得して画面に表示します
 
 .size_small_9[
 ```js
-// (7) ログイン完了時の処理
+// (7) 歩数データを取得してログイン時に表示する処理
 var loginComplete = function(today){
   // 今日の歩数をクラウドから取得してPedometerに設定
   Steps.equalTo('date', today)
@@ -448,7 +456,7 @@ var loginComplete = function(today){
 ]
 
 ---
-### (7) ログイン完了時の処理
+### (7) 歩数データを取得してログイン時に表示する処理
 * データの取得のため、検索を行います
 * `.equalTo('キー', バリュー)`メソッドで「キー」の値が、「バリュー」と一致するデータを指定し、`.fetchAll()`メソッドで全件検索を行います
 * 取得した値から各キーの値を取り出すには、`.get('キー')`メソッドを使用します
@@ -499,10 +507,15 @@ var watchId = navigator.accelerometer.watchAcceleration(onAcceSuccess, onAcceErr
 * 実際に歩数計を使ってみましょう
 * 「スタート」ボタンをタップして、測定を開始
  * 歩けない場合は、振っても動作確認が可能です◎
+
+.center[![動作確認②デバッガー3](readme-img/動作確認②デバッガー3.png)]
+
+---
+### ★動作確認②
 * 「ストップ」ボタンをタップして測定を終えます
  * このときデータがmobile backend に保存されます！
 
-.center[![動作確認②デバッガー1](readme-img/動作確認②デバッガー1.png)]
+.center[![動作確認②デバッガー4](readme-img/動作確認②デバッガー4.png)]
 
 ---
 ### 動作確認②
@@ -557,11 +570,12 @@ layout: false
 
 .center[![補足3](readme-img/補足3.png)]
 
+.size_small_9[
 他にも、
- * mobile backend のプッシュ通知機能を使って追加機能簡単追加！
+ * mobile backend のプッシュ通知機能を使ってアプリをより便利に！
   * 1日のおわりに、計測した歩数をプッシュ通知でユーザーに報告してみる
   * 歩数が少ないユーザーには励ましのプッシュ通知を送ってみる
-
+]
 ---
 layout: true
 class: center, middle, inverse_sub
