@@ -26,7 +26,7 @@ var syncCloud = function(data, waitingList){
   /* ここに記入 */
 };
 
-// (7) ログイン完了時の処理
+// (7) 歩数データを取得してログイン時に表示する処理
 var loginComplete = function(today){
   /* ここに記入 */
 };

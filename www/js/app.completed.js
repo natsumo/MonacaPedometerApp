@@ -90,7 +90,7 @@ var syncCloud = function(data, waitingList){
     });
 };
 
-// (7) ログイン完了時の処理
+// (7) 歩数データを取得してログイン時に表示する処理
 var loginComplete = function(today){
   // 今日の歩数をクラウドから取得してPedometerに設定
   Steps.equalTo('date', today)
