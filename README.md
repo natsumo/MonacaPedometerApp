@@ -465,26 +465,29 @@ var loginComplete = function(today){
 ### ＜おまけ＞<br>加速度センサーから値を取得する処理[実装済み]
 端末に備わっている「加速度センサー」の値取得し、歩数を計測しています。Monacaでは簡単に加速度センサーから値を取得することが可能です。使い方に関しては、後ほど触れますが、実装済みの内容をここで示しておきます。
 
-.left-column[
 * Cordovaプラグイン
  * Device Motion を有効にします
 
 .center[![Device_Motion](readme-img/Device_Motion.png)]
-]
-.right-column[
+
+
+---
+### ＜おまけ＞<br>加速度センサーから値を取得する処理[実装済み]
+
 * 加速度センサーから値を取得
+
 ```js
-var watchId = navigator.accelerometer.watchAcceleration(onAcceSuccess, onAcceError, accelerometerOptions);
+var watchId = navigator.accelerometer
+                       .watchAcceleration(onAcceSuccess, onAcceError, accelerometerOptions);
 ```
-.size_small_7[
+
 * `onAcceSuccess`
  * 加速度センサー取得成功時のコールバック
 * `onAcceError`
  * 加速度センサー取得失敗時のコールバック
 * `accelerometerOptions`
  * 加速度センサー取得時の設定
-]
-]
+
 ---
 ### ★動作確認②
 #### Monacaデバッガー動作確認をしてみましょう
