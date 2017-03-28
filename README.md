@@ -104,7 +104,7 @@ https://ja.monaca.io/
 ### Monaca準備
 #### mobile backend  SDK の導入
 * 「設定」＞「JS/CSSコンポーネントの追加と削除...」をクリックします
-* 「ncmb」と入力し、
+* 「ncmb」と入力して「検索」をクリックします
 
 .center[![SDK導入1](readme-img/SDK導入1.png)]
 
