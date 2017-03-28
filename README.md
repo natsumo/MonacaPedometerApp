@@ -384,13 +384,6 @@ var syncCloud = function(data, waitingList){
   acl.setUserReadAccess(currentUser, true)
      .setUserWriteAccess(currentUser, true);
 
-  // Stepsクラスのインスタンスを生成
-  var steps = new Steps();
-  // 値を設定
-  steps.set('objectId', data.objectId)
-       .set('date', data.date)
-       .set('count', data.count)
-       .set('acl', acl);
 ```
 つづく
 ---
@@ -398,6 +391,13 @@ var syncCloud = function(data, waitingList){
 * mobile backend にデータを保存（あるいは更新）する処理を実装します
 
 ```js
+  // Stepsクラスのインスタンスを生成
+  var steps = new Steps();
+  // 値を設定
+  steps.set('objectId', data.objectId)
+       .set('date', data.date)
+       .set('count', data.count)
+       .set('acl', acl);
   // save/updateメソッドでクラウド上へ保存/更新する
   (!steps.objectId ? steps.save() : steps.update()) // 三項演算子 (条件 ? 真:偽)
     .then(function(obj){
