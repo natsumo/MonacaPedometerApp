@@ -137,8 +137,8 @@ http://mb.cloud.nifty.com/
 ### mobile backend 準備
 * 新しいアプリを作成します
  * アプリ名は「`pedometer`」と入力してください
- * mobile backend を既に使用したことがある場合は、画面上方のメニューバーにある「+新しいアプリ」をクリックすると同じ画面が表示されます
-![mBaaS準備2-2](readme-img/mBaaS準備2-2.png)
+ * mobile backend を既に使用したことがある場合は、画面上方の<br>![新しいアプリ](readme-img/新しいアプリ.png)  をクリックすると同じ画面が表示されます 
+
 
 .center[![mBaaS準備2-1](readme-img/mBaaS準備2-1.png)]
 
