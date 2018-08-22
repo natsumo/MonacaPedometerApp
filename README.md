@@ -2,11 +2,13 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# <span style="font-size: 30%">【Monaca × ニフティクラウド mobile backend】</span><br>簡単IoT！<br>歩数計アプリを作ろう
-@ニフティ株式会社
+# <span style="font-size: 30%">【Monaca × ニフクラ mobile backend】</span><br>簡単IoT！<br>歩数計アプリを作ろう
+富士通クラウドテクノロジーズ株式会社
+
+.right[<img src="readme-img/takano.png" alt="takano.png" width="150px">]
 
 .footnote[
-20161114(20170328update)
+20180912update
 ]
 
 ---
@@ -18,7 +20,7 @@ class: center, middle, inverse_sub
 ---
 layout: false
 ### 概要
-Monacaとニフティクラウド mobile backendを使うことで、クラウドにデータを保存し、そのデータをユーザーごとに管理できる機能を備えた「歩数計」アプリが簡単に作成できます。ここではその手順を解説します。
+Monacaとニフクラ mobile backendを使うことで、クラウドにデータを保存し、そのデータをユーザーごとに管理できる機能を備えた「歩数計」アプリが簡単に作成できます。ここではその手順を解説します。
 
 .center[![歩数計アプリイメージ](readme-img/歩数計アプリイメージ.png)]
 
@@ -30,11 +32,11 @@ __もなか 【[Monaca](https://ja.monaca.io/)】__
 .center[![Monacaとは？](readme-img/Monacaとは.png)]
 
 ---
-### ニフティクラウド mobile backend って何？
-__にふてぃくらうど-もばいる-ばっくえんど 【[ニフティクラウド mobile backend](http://mb.cloud.nifty.com/about.htm)】__
+### ニフクラ mobile backend って何？
+__にふくら-もばいる-ばっくえんど 【[ニフクラ mobile backend](https://mbaas.nifcloud.com/about.htm)】__
 * スマートフォンアプリに必要なバックエンド機能が開発不要で利用できるクラウドサービス。 クラウド上に用意された機能をAPIで呼び出すだけで利用できます。また、APIを簡単に使うためのSDKを用意しています（ iOS / Android / Monaca / Unity ）。
 
-.center[![mBaaSとは？](readme-img/mBaaSとは.png)]
+.center[<img src="readme-img/About_mBaaS.png" alt="mBaaSとは？" width="400px">]
 
 ---
 ### Monaca と mobile backend  で<br>サーバー連携アプリは簡単に実現可能に
@@ -68,8 +70,8 @@ class: center, middle, inverse_sub
 layout: false
 ### 事前準備
 登録を完了し、アカウントを作成しておいてください。
-* [Monaca](https://ja.monaca.io/register/start.html)利用登録（無料）
-* [ニフティクラウド mobile backend](http://mb.cloud.nifty.com/signup.htm)利用登録（無料）
+* [Monaca](https://monaca.mobi/ja/signup) 利用登録（無料）
+* [ニフクラ mobile backend](https://mbaas.nifcloud.com/signup.htm) 利用登録（無料）
 
 ### 動作環境準備
 * PC
@@ -81,24 +83,31 @@ layout: false
 ### Monaca準備
 * Monacaにログインをします
 
-.center[![Monaca準備1](readme-img/Monaca準備1.png)]
+.center[<img src="readme-img/Monaca準備1.png" alt="Monaca準備1" width="730px">]
+
 https://ja.monaca.io/
 
 ---
 ### Monaca準備
-* 「Import Project」をクリックすると、「プロジェクトのインポート」画面が表示されます
-* 「プロジェクト名」を入力します　例）歩数計アプリ
-* 「インポート方法」では、「URLを指定してインポート」を選択し、次のURLを入力します
- * `https://github.com/natsumo/MonacaPedometerApp/archive/master.zip`
-* プロジェクトが作成されたら、「開く」をクリックします
+#### サンプルプロジェクトのインポート
 
-.center[![Monaca準備2](readme-img/Monaca準備2.png)]
+.left-column[
+* プロジェクトをインポートします
+  * 右記リンク先ページを開き「インポート」をクリックします
+* プロジェクトがインポートされたら選択し、右側に表示される「クラウドIDEで表示」をクリックします
+]
+
+.right-column[
+.size_large_18[**https://goo.gl/Yvzf2q** ]
+]
+
+.center[<img src="readme-img/Monaca準備2.png" alt="Monaca準備2" width="300px">]
 
 ---
 ### Monaca準備
 * プロジェクトが開かれます
 
-.center[![Monaca準備3](readme-img/Monaca準備3.png)]
+.center[<img src="readme-img/Monaca準備3.png" alt="Monaca準備3" width="750px">]
 
 ---
 ### Monaca準備
@@ -130,14 +139,14 @@ https://ja.monaca.io/
 ### mobile backend 準備
 * mobile backend  にログインします
 
-.center[![mBaaS準備1](readme-img/mBaaS準備1.png)]
-http://mb.cloud.nifty.com/
+.center[<img src="readme-img/mBaaS準備1.png" alt="mBaaS準備1" width="750px">]
+https://mbaas.nifcloud.com/
 
 ---
 ### mobile backend 準備
 * 新しいアプリを作成します
  * アプリ名は「`pedometer`」と入力してください
- * mobile backend を既に使用したことがある場合は、画面上方の<br>![新しいアプリ](readme-img/新しいアプリ.png)  をクリックすると同じ画面が表示されます 
+ * mobile backend を既に使用したことがある場合は、画面上方の<br>![新しいアプリ](readme-img/新しいアプリ.png)  をクリックすると同じ画面が表示されます
 
 
 .center[![mBaaS準備2-1](readme-img/mBaaS準備2-1.png)]
@@ -171,25 +180,22 @@ layout: false
 * `www/js/app.js`を開きます
 * (1)～(7)のコーディングを終えるとアプリが完成する仕組みです
 
-.center[![手順1](readme-img/手順1.png)]
-
-* 編集したら保存を忘れずに！！
- * メニューバーの「保存」をクリックするか、Windowsの場合「Ctrl + S」、Macの場合「Command + S」で保存できます。
+.center[<img src="readme-img/手順1.png" alt="手順1" width="600px">]
 
 ---
 ### 目次
-.size_large[
+
 (1) SDKの初期化<br>
 (2) 会員の新規登録の処理<br>
 (3) 会員のログインの処理<br>
 (4) ログアウトの処理<br>
 ★動作確認①<br>
+
 (5) クラウド上で歩数を管理する「Steps」クラスを定義する<br>
 (6) 歩数データをクラウドと同期させる処理<br>
 (7) 歩数データを取得してログイン時に表示する処理<br>
 ＜おまけ＞加速度センサーから値を取得する処理[実装済み]<br>
-★動作確認②<br>
-]
+★動作確認②
 
 ---
 ### (1) SDKの初期化
@@ -254,7 +260,7 @@ var signUp = function(email, password){
 ### (2) 会員の新規登録の処理
 * インスタンスを生成して、`.set(キー, バリュー)`メソッドで値を設定します
  * ここでは「ユーザー名とパスワード」で認証する形式を利用し、ユーザー名としてメールアドレスを使っています。
- * 「メールアドレスとパスワード」での認証も実装可能です。詳しくは[ドキュメントページ](http://mb.cloud.nifty.com/doc/current/user/authorize_email_monaca.html)をご覧ください。
+ * 「メールアドレスとパスワード」での認証も実装可能です。詳しくは[ドキュメントページ](https://mbaas.nifcloud.com/doc/current/user/authorize_email_monaca.html)をご覧ください。
 * `.signUpByAccount()`メソッドで登録を実行します
 * この後も出てきますが、登録や保存の処理に成功したの場合の処理を、`.then`、処理失敗の場合の処理を、`.catch`で行います。
 * 会員登録処理に成功した場合は、`.login(ユーザー)`としてユーザー名とパスワードをもつインスタンスでログインしています。
@@ -302,12 +308,15 @@ var logout = function(){
 ```
 これで会員管理周りの機能実装が完了しました◎
 
+* 編集したら保存を忘れずに！！
+ * メニューバーの「保存」をクリックするか、Windowsの場合「Ctrl + S」、Macの場合「Command + S」で保存できます。
+
 ---
 ### ★動作確認①
 * プレビュー画面をつかって、会員機能（会員登録、ログイン、ログアウト）の動作確認をしてみましょう
  * ここでは簡単のため、Monacaデバッガーは使用せず動作確認を行います。
 
-.center[![Monaca準備3](readme-img/Monaca準備3.png)]
+.center[<img src="readme-img/Monaca準備3.png" alt="Monaca準備3" width="750px">]
 
 ---
 ### ★動作確認①
@@ -462,6 +471,10 @@ var loginComplete = function(today){
 * `.equalTo(キー, バリュー)`メソッドで「キー」の値が、「バリュー」と一致するデータを指定し、`.fetchAll()`メソッドで全件検索を行います
 * 取得した値から各キーの値を取り出すには、`.get(キー)`メソッドを使用します
 
+* 編集したら保存を忘れずに！！
+ * メニューバーの「保存」をクリックするか、Windowsの場合「Ctrl + S」、Macの場合「Command + S」で保存できます。
+
+
 ---
 ### ＜おまけ＞<br>加速度センサーから値を取得する処理[実装済み]
 端末に備わっている「加速度センサー」の値取得し、歩数を計測しています。Monacaでは簡単に加速度センサーから値を取得することが可能です。使い方に関しては、後ほど触れますが、実装済みの内容をここで示しておきます。
@@ -469,8 +482,7 @@ var loginComplete = function(today){
 * Cordovaプラグイン
  * Device Motion を有効にします
 
-.center[![Device_Motion](readme-img/Device_Motion.png)]
-
+.center[<img src="readme-img/Device_Motion.png" alt="Device_Motion" width="250px">]
 
 ---
 ### ＜おまけ＞<br>加速度センサーから値を取得する処理[実装済み]
